@@ -6,4 +6,4 @@ const alunoSchema = new Schema({
     idade: Number
 }, {versionKey:false})
 
-mongoose.exports = mongoose.model('Alunos', alunoSchema)
+module.exports = mongoose.model('Alunos', alunoSchema)
