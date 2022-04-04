@@ -43,3 +43,16 @@ module.exports.editar = (req, res)=>{
         res.redirect('/')
     })
 }
+
+//deletar
+module.exports.excluir = (req, res)=>{
+    const id = req.params.id
+    Aluno.findByIdAndRemove(id, (error, aluno)=>{
+        if(error){
+            return res.status(500).json({
+                mensagem: 'Error ao excluir aluno'
+            })
+        }
+        res.redirect('/')
+    })
+}
