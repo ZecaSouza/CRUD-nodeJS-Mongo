@@ -8,6 +8,6 @@ module.exports.mostrar = (req, res)=>{
                 mensagem: 'Error ao mostrar alunos'
             })
         }
-        console.log(alunos)
+        return res.render('index', {alunos: alunos})
     })
 }
