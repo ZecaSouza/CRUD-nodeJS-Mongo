@@ -28,3 +28,18 @@ module.exports.criar = (req, res)=>{
         res.redirect('/')
     })
 }
+
+//editar
+module.exports.editar = (req, res)=>{
+    const id = req.body.id_editar
+    const nome = req.body.nome_editar
+    const idade = req.body.idade_editar
+    Aluno.findByIdAndUpdate(id, {nome, idade},(error, aluno)=>{
+        if(error){
+            return res.status(500).json({
+                mensagem: 'Error ao atualizar alunos'
+            })
+        }
+        res.redirect('/')
+    })
+}

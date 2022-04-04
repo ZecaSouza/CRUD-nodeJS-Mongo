@@ -9,4 +9,7 @@ router.get('/', alunoController.mostrar)
 //criar aluno (POST)
 router.post('/criar',alunoController.criar )
 
+//editar aluno (POST)
+router.post('/editar',alunoController.editar )
+
 module.exports = router
