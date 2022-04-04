@@ -11,3 +11,20 @@ module.exports.mostrar = (req, res)=>{
         return res.render('index', {alunos: alunos})
     })
 }
+
+// criar
+module.exports.criar = (req, res)=>{
+    //console.log(req.body)
+    const aluno = new Aluno({
+        nome: req.body.nome,
+        idade: req.body.idade
+    })
+    aluno.save(function(error,aluno){
+        if(error){
+            return res.status(500).json({
+                mensagem: 'Error ao cadastrar alunos'
+            })
+        }
+        res.redirect('/')
+    })
+}
